@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AshAndSilverGame/AshAndSilverGame.csproj" />
+  <Project Path="RelixEngine/RelixEngine.csproj" />
+</Solution>
