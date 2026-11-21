@@ -1,11 +1,30 @@
 {
   "version": 4,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "RelixEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/RelixEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RelixEngine.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RelixEngine/1.0.0": {
+      "type": "project",
+      "path": "../RelixEngine/RelixEngine.csproj",
+      "msbuildProject": "../RelixEngine/RelixEngine.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "RelixEngine >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\alptu\\.nuget\\packages\\": {}
@@ -32,7 +51,11 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alptu\\OneDrive\\Desktop\\AshAndSilver\\RelixEngine\\RelixEngine.csproj": {
+              "projectPath": "C:\\Users\\alptu\\OneDrive\\Desktop\\AshAndSilver\\RelixEngine\\RelixEngine.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
