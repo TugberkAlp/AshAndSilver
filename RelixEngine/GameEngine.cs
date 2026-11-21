@@ -11,7 +11,12 @@ public abstract class GameEngine
   private const float MaxDeltaTimeSeconds = 0.05f;
 
   private bool _engineIsRunning;
-  
+  private readonly IGameWindow? _gameWindow;
+  public GameEngine(IGameWindow? gameWindow = null)
+  {
+    _gameWindow = gameWindow;
+  }
+
   protected virtual void Initialize()
   {
     // Oyun açıldığında bir kez çalışacak başlangıç mantığı buraya yazılır.
@@ -21,6 +26,7 @@ public abstract class GameEngine
   {
     // Oyun her frame çalıştığında çalışacak mantık buraya yazılır.
   }
+
   protected virtual void Render()
   {
     // Oyun her frame çalıştığında ekrana çizim yapılır.
@@ -29,14 +35,20 @@ public abstract class GameEngine
   public void Run()
   {
     _engineIsRunning = true;
+    _gameWindow?.Open();
     Initialize();
 
     Stopwatch stopwatch = Stopwatch.StartNew();
     double previousElapsedMilliseconds = stopwatch.Elapsed.TotalMilliseconds;
     double targetFrameDurationMilliseconds = MillisecondsPerSecond / TargetFramesPerSecond;
 
-    while(_engineIsRunning)
+    while (_engineIsRunning)
     {
+      if (_gameWindow != null && !_gameWindow.IsOpen)
+      {
+        _engineIsRunning = false;
+        break;
+      }
       double currentElapsedMilliseconds = stopwatch.Elapsed.TotalMilliseconds;
       double rawDeltaMilliseconds = currentElapsedMilliseconds - previousElapsedMilliseconds;
       previousElapsedMilliseconds = currentElapsedMilliseconds;
@@ -47,7 +59,7 @@ public abstract class GameEngine
       Render();
       double frameEndMilliseconds = stopwatch.Elapsed.TotalMilliseconds;
       double totalFrameDurationMilliseconds = frameEndMilliseconds - currentElapsedMilliseconds;
-      
+
       double remainingMilliseconds = targetFrameDurationMilliseconds - totalFrameDurationMilliseconds;
 
       if (remainingMilliseconds >= 1.0)
@@ -55,6 +67,7 @@ public abstract class GameEngine
         Thread.Sleep((int)remainingMilliseconds);
       }
     }
+    _gameWindow?.Close();
   }
 
   public void Stop()
