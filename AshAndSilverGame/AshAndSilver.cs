@@ -27,19 +27,19 @@ public class AshAndSilver : GameEngine
   protected override void Update(float deltaTime)
   {
     base.Update(deltaTime);
-    if (_window.Input.IsKeyDown(EngineKey.A))
+    if (_window.Actions.IsActionDown(GameAction.MoveLeft))
     {
       _x -= Speed * deltaTime;
     }
-    if (_window.Input.IsKeyDown(EngineKey.D))
+    if (_window.Actions.IsActionDown(GameAction.MoveRight))
     {
       _x += Speed * deltaTime;
     }
-    if (_window.Input.IsKeyDown(EngineKey.W))
+    if (_window.Actions.IsActionDown(GameAction.MoveUp))
     {
       _y -= Speed * deltaTime;
     }
-    if (_window.Input.IsKeyDown(EngineKey.S))
+    if (_window.Actions.IsActionDown(GameAction.MoveDown))
     {
       _y += Speed * deltaTime;
     }

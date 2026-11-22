@@ -9,4 +9,5 @@ public interface IGameWindow
   void Tick();
   void QueueRectangle(int x, int y, int width, int height, EngineColor color);
   IGameInput Input { get; }
+  IActionInput Actions { get; }
 }
