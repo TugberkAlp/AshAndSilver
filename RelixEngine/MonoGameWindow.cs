@@ -4,6 +4,7 @@ namespace RelixEngine;
 
 public class MonoGameWindow : IGameWindow
 {
+  public Color ClearColor { get; set; } = Color.MediumPurple;
   public int Width { get; }
   public int Height { get; }
   public string Title { get; }
@@ -61,6 +62,12 @@ public class MonoGameWindow : IGameWindow
       });
       thread.IsBackground = true;
       thread.Start();
+    }
+
+    protected override void Draw(GameTime gameTime)
+    {
+      GraphicsDevice.Clear(_owner.ClearColor);
+      base.Draw(gameTime);
     }
   }
 }

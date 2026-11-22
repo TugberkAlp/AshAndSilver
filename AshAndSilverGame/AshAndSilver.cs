@@ -1,4 +1,5 @@
 using RelixEngine;
+using Microsoft.Xna.Framework;
 
 namespace AshAndSilverGame;
 
@@ -24,6 +25,7 @@ public class AshAndSilver : GameEngine
   {
     base.Update(deltaTime);
     Console.WriteLine($"Ash and Silver game updated. Delta time: {deltaTime} seconds.");
+    GraphicsDevice.Clear(Color.CornflowerBlue);
   }
   protected override void Render()
   {
