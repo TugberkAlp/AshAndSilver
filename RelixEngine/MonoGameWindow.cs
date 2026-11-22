@@ -14,6 +14,8 @@ public class MonoGameWindow : IGameWindow
   private bool _isOpen;
   private InternalMonoGameHost? _host;
   private readonly RenderQueue _renderQueue = new();
+  private readonly MonoGameInput _input = new();
+  public IGameInput Input => _input;
 
   public MonoGameWindow(string title = "Ash and Silver", int width = 1280, int height = 720)
   {
@@ -42,6 +44,7 @@ public class MonoGameWindow : IGameWindow
     {
       return;
     }
+    _input.Update();
   }
 
   public void QueueRectangle(int x, int y, int width, int height, EngineColor color)

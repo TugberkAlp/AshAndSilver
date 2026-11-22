@@ -8,4 +8,5 @@ public interface IGameWindow
   void Close();
   void Tick();
   void QueueRectangle(int x, int y, int width, int height, EngineColor color);
+  IGameInput Input { get; }
 }
