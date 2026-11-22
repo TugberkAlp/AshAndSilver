@@ -4,11 +4,11 @@ namespace RelixEngine;
 
 public class MonoGameWindow : IGameWindow
 {
-  public Color ClearColor { get; set; } = Color.MediumPurple;
   public int Width { get; }
   public int Height { get; }
   public string Title { get; }
   public bool IsOpen => _isOpen;
+  public EngineColor BackgroundColor { get; set; } = EngineColor.MediumPurple;
   private bool _isOpen;
   private InternalMonoGameHost? _host;
 
@@ -66,7 +66,8 @@ public class MonoGameWindow : IGameWindow
 
     protected override void Draw(GameTime gameTime)
     {
-      GraphicsDevice.Clear(_owner.ClearColor);
+      var c = _owner.BackgroundColor;
+      GraphicsDevice.Clear(new Color(c.R, c.G, c.B, c.A));
       base.Draw(gameTime);
     }
   }
