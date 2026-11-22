@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AshAndSilverGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+946fd40eb08bcc21a306551df572e6dc87adfb80")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b994f8cefa5a5e5c540d63fc6d908c45beca8713")]
 [assembly: System.Reflection.AssemblyProductAttribute("AshAndSilverGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AshAndSilverGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
