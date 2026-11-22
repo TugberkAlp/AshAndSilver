@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RelixEngine")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3c19a050fe120b8baaaf6ff252bc9218b125fb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+946fd40eb08bcc21a306551df572e6dc87adfb80")]
 [assembly: System.Reflection.AssemblyProductAttribute("RelixEngine")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RelixEngine")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
