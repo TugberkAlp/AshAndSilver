@@ -21,6 +21,7 @@ public class AshAndSilver : GameEngine
     base.Initialize();
     Console.WriteLine("Ash and Silver game initialized.");
   }
+  
   protected override void Update(float deltaTime)
   {
     base.Update(deltaTime);
