@@ -19,17 +19,16 @@ public class AshAndSilver : GameEngine
   {
     _window.BackgroundColor = EngineColor.CornflowerBlue;
     base.Initialize();
-    Console.WriteLine("Ash and Silver game initialized.");
   }
-  
+
   protected override void Update(float deltaTime)
   {
     base.Update(deltaTime);
-    Console.WriteLine($"Ash and Silver game updated. Delta time: {deltaTime} seconds.");
   }
+
   protected override void Render()
   {
     base.Render();
-    Console.WriteLine("Ash and Silver game rendered.");
+    _window.QueueRectangle(200, 180, 64, 64, EngineColor.White);
   }
 }

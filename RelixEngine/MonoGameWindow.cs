@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace RelixEngine;
 
@@ -7,10 +8,12 @@ public class MonoGameWindow : IGameWindow
   public int Width { get; }
   public int Height { get; }
   public string Title { get; }
-  public bool IsOpen => _isOpen;
   public EngineColor BackgroundColor { get; set; } = EngineColor.MediumPurple;
+  public bool IsOpen => _isOpen;
+
   private bool _isOpen;
   private InternalMonoGameHost? _host;
+  private readonly RenderQueue _renderQueue = new();
 
   public MonoGameWindow(string title = "Ash and Silver", int width = 1280, int height = 720)
   {
@@ -41,10 +44,18 @@ public class MonoGameWindow : IGameWindow
     }
   }
 
+  public void QueueRectangle(int x, int y, int width, int height, EngineColor color)
+  {
+    _renderQueue.EnqueueRectangle(x, y, width, height, color);
+  }
+
   private sealed class InternalMonoGameHost : Game
   {
     private readonly GraphicsDeviceManager _graphics;
     private readonly MonoGameWindow _owner;
+    private SpriteBatch? _spriteBatch;
+    private Texture2D? _pixelTexture;
+
     public InternalMonoGameHost(MonoGameWindow owner)
     {
       _owner = owner;
@@ -54,6 +65,15 @@ public class MonoGameWindow : IGameWindow
       _graphics.PreferredBackBufferHeight = _owner.Height;
       Exiting += (_, _) => _owner.Close();
     }
+
+    protected override void LoadContent()
+    {
+      _spriteBatch = new SpriteBatch(GraphicsDevice);
+      _pixelTexture = new Texture2D(GraphicsDevice, 1, 1);
+      _pixelTexture.SetData(new[] { Color.White });
+      base.LoadContent();
+    }
+
     public void StartHost()
     {
       Thread thread = new Thread(() =>
@@ -66,8 +86,14 @@ public class MonoGameWindow : IGameWindow
 
     protected override void Draw(GameTime gameTime)
     {
-      var c = _owner.BackgroundColor;
-      GraphicsDevice.Clear(new Color(c.R, c.G, c.B, c.A));
+      var bg = _owner.BackgroundColor;
+      GraphicsDevice.Clear(new Color(bg.R, bg.G, bg.B, bg.A));
+
+      if (_spriteBatch != null && _pixelTexture != null)
+      {
+        _owner._renderQueue.DrawAll(_spriteBatch, _pixelTexture);
+      }
+
       base.Draw(gameTime);
     }
   }

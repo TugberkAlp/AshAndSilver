@@ -7,4 +7,5 @@ public interface IGameWindow
   void Open();
   void Close();
   void Tick();
+  void QueueRectangle(int x, int y, int width, int height, EngineColor color);
 }
