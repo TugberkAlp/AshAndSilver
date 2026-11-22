@@ -5,4 +5,5 @@ public interface IGameWindow
   bool IsOpen { get; }
   void Open();
   void Close();
+  void Tick();
 }

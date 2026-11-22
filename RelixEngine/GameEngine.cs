@@ -17,21 +17,6 @@ public abstract class GameEngine
     _gameWindow = gameWindow;
   }
 
-  protected virtual void Initialize()
-  {
-    // Oyun açıldığında bir kez çalışacak başlangıç mantığı buraya yazılır.
-  }
-
-  protected virtual void Update(float deltaTime)
-  {
-    // Oyun her frame çalıştığında çalışacak mantık buraya yazılır.
-  }
-
-  protected virtual void Render()
-  {
-    // Oyun her frame çalıştığında ekrana çizim yapılır.
-  }
-
   public void Run()
   {
     _engineIsRunning = true;
@@ -44,6 +29,7 @@ public abstract class GameEngine
 
     while (_engineIsRunning)
     {
+      _gameWindow?.Tick();
       if (_gameWindow != null && !_gameWindow.IsOpen)
       {
         _engineIsRunning = false;
@@ -68,6 +54,21 @@ public abstract class GameEngine
       }
     }
     _gameWindow?.Close();
+  }
+
+  protected virtual void Initialize()
+  {
+    // Oyun açıldığında bir kez çalışacak başlangıç mantığı buraya yazılır.
+  }
+
+  protected virtual void Update(float deltaTime)
+  {
+    // Oyun her frame çalıştığında çalışacak mantık buraya yazılır.
+  }
+
+  protected virtual void Render()
+  {
+    // Oyun her frame çalıştığında ekrana çizim yapılır.
   }
 
   public void Stop()

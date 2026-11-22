@@ -7,15 +7,15 @@ public class MonoGameWindow : IGameWindow
   public int Width { get; }
   public int Height { get; }
   public string Title { get; }
+  public bool IsOpen => _isOpen;
   private bool _isOpen;
   private InternalMonoGameHost? _host;
-  public bool IsOpen => _isOpen;
 
-  public MonoGameWindow(int width = 1280, int height = 720, string title = "Ash and Silver")
+  public MonoGameWindow(string title = "Ash and Silver", int width = 1280, int height = 720)
   {
+    Title = title;
     Width = width;
     Height = height;
-    Title = title;
     _isOpen = false;
   }
 
@@ -23,6 +23,7 @@ public class MonoGameWindow : IGameWindow
   {
     _isOpen = true;
     _host = new InternalMonoGameHost(this);
+    _host.StartHost();
   }
 
   public void Close()
@@ -31,11 +32,18 @@ public class MonoGameWindow : IGameWindow
     _host?.Exit();
   }
 
+  public void Tick()
+  {
+    if (!_isOpen || _host == null)
+    {
+      return;
+    }
+  }
+
   private sealed class InternalMonoGameHost : Game
   {
     private readonly GraphicsDeviceManager _graphics;
     private readonly MonoGameWindow _owner;
-
     public InternalMonoGameHost(MonoGameWindow owner)
     {
       _owner = owner;
@@ -43,6 +51,16 @@ public class MonoGameWindow : IGameWindow
       Window.Title = _owner.Title;
       _graphics.PreferredBackBufferWidth = _owner.Width;
       _graphics.PreferredBackBufferHeight = _owner.Height;
+      Exiting += (_, _) => _owner.Close();
+    }
+    public void StartHost()
+    {
+      Thread thread = new Thread(() =>
+      {
+        Run();
+      });
+      thread.IsBackground = true;
+      thread.Start();
     }
   }
 }

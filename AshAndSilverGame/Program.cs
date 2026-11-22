@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+using AshAndSilverGame;
+
+var game = new AshAndSilver();
+game.Run();

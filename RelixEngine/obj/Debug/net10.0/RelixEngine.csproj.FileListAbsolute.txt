@@ -1,0 +1,13 @@
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\bin\Debug\net10.0\RelixEngine.deps.json
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\bin\Debug\net10.0\RelixEngine.dll
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\bin\Debug\net10.0\RelixEngine.pdb
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.csproj.AssemblyReference.cache
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.AssemblyInfoInputs.cache
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.AssemblyInfo.cs
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.csproj.CoreCompileInputs.cache
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.sourcelink.json
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.dll
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\refint\RelixEngine.dll
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\RelixEngine.pdb
+C:\Users\alptu\OneDrive\Desktop\AshAndSilver\RelixEngine\obj\Debug\net10.0\ref\RelixEngine.dll
